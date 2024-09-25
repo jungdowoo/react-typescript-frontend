@@ -1,0 +1,203 @@
+
+.mypage-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display:flex;
+  }
+  .mp-content {
+    flex-grow:1;
+    margin-left:20px;
+    max-width: calc(100%- 240px);
+  }
+  .sidebar {
+    width:180px;
+    margin-right:20px;
+    background: #fff;
+    padding:20px;
+    border-radius: 8px;
+    position:sticky;
+    top:20px;
+    height: fit-content;
+  }
+  .sidebar-section{
+    margin-bottom:40px;
+  }
+  .sidebar h1 {
+    font-size:24px;
+    margin-bottom:20px;
+  }
+  .sidebar ul {
+    list-style: none;
+    padding:0;
+    margin:0;
+    display:block;
+  }
+  .sidebar ul li {
+    margin-bottom: 10px;
+  }
+  .sidebar ul li strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  .sidebar ul li a {
+    display: block;
+    color:#333;
+    text-decoration: none;
+  }
+  .profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid #ebebeb;
+    padding:24px;
+    border-radius: 15px;
+  }
+.input-wrapper {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom:10px;
+  }
+  .button-group {
+    display:flex;
+    justify-content: center;
+    gap:10px;
+    margin-right:450px;
+  }
+  .profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+  }
+  
+  .profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .profile-info {
+    flex-grow: 1;
+  }
+  
+  .profile-info h2 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .profile-info p {
+    margin: 5px 0 0;
+    color: #666;
+  }
+  
+  .profile-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .profile-buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .profile-buttons button:hover {
+    background-color: #0056b3;
+  }
+  
+  .settings-section {
+    margin-top: 20px;
+  }
+  
+  .settings-section h2 {
+    color: #333;
+  }
+  
+  .settings-section button {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .settings-section button:hover {
+    background-color: #0056b3;
+  }
+
+  /* 프로필 변경 CSS*/
+
+  .pro_wrapper{
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .pro_container {
+    flex-grow:1;
+    max-width: 1000px;
+    margin: 20px;
+  }
+  .profile-image-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    max-width:1000px;
+    padding:38px 0;
+    border-bottom:2px solid #ededed;
+  }
+  
+  .profile-image-section img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  
+  .profile-info-section {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profile-info-section label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .profile-info-section input {
+    width:480px; /* 닉네임 변경을 위해 나중에 사용할 수 있습니다 */
+  }
+  
+  .profile-info-section button {
+    margin-top: 10px;
+  }
+  
+  .pro_container h1 {
+    padding:0 0 16px;
+    font-size:24px;
+    border-bottom: 3px solid #222
+  };
+  .profile-image-section {width:60px; height:60px;}
+  .profile-header {
+    display: flex;
+    align-items:center;
+    margin-bottom: 20px;
+  }
+  .profile-edit-button{
+    margin-left:auto;
+  }
+  

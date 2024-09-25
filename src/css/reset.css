@@ -1,0 +1,33 @@
+
+
+
+.button_container{
+    display:flex;
+    width:100%;
+    list-style: none;
+    margin-bottom:20px;
+}
+.btn_chk {
+    width:190px;
+    height:85px;
+    line-height:85px;
+    font-size:17px;
+    box-sizing:border-box;
+    cursor: pointer;
+    border: 0px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.selected {
+    background: #ff5200;
+    color:#fff;
+}
+.unselected {
+    background:#fff;
+    color:#ff5200;
+    border:1px solid #ff5200;
+}

@@ -1,0 +1,216 @@
+/* 페이지 기본 스타일 */
+.category-page {
+    text-align: center;
+}
+.catecontainer{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding:20px;
+}
+.cate-h2 {
+    font-size:23px;
+    font-family: "맑은 고딕", "Malgun Gothic", "돋움", sans-serif;
+    color:#242424;
+    margin-bottom:34px;
+    font-weight:400;
+    text-align: left;
+}
+/*검색창 스타일*/
+.search-bar {
+    margin:20px 0;
+    display:flex;
+    justify-content: center;
+    gap:10px;
+}
+.search-input {
+    width:300px;
+    padding:10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+.search-button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+/* 해시태그 박스 */
+.hashtag-container {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.hashtag-container span {
+    display:inline-block;
+    background-color: #f1f1f1;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size:14px;
+    cursor: pointer;
+}
+/* 작가 등록 버튼 스타일 */
+.action-buttons {
+    margin-top: 20px;
+    text-align: right;
+}
+.register-button {
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+/* 상단 배너 스타일 */
+.banner {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+}
+
+.banner h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.banner p {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* 카테고리 네비게이션 스타일 */
+.category-nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.category-nav li {
+    display: inline-block;
+    width:140px;
+    background:#818181;
+    color:#fff;
+    cursor:pointer;
+    text-align: center;
+    padding:10px;
+    border:1px solid #333;
+    margin:20px 0 0 0;
+}
+.category-nav li.active {
+    background:#fff;
+    color:#000;
+}
+
+.category-nav a {
+    text-decoration: none;
+    color:inherit;
+    font-size: 16px;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+
+
+/* 카테고리 그리드 스타일 */
+.category-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    margin-top: 20px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.category-item {
+    width: 100%;
+    max-width:550px;
+    height:244px;
+    text-align: left;
+    margin-bottom:20px;
+}
+.artwork-card {
+    display:flex;
+    flex-direction:column;
+    width:534px;
+    height:244px;
+    margin-bottom:42px;
+    margin-right:10px;
+    border: 1px solid #e7e7e7;
+    overflow: hidden;
+    background-color: #fff;
+    padding:15px;
+}
+.artwork-card img {
+    width: 162px;
+    height:122px;
+    object-fit: cover;
+    margin: 0 auto;
+
+}
+.artwork-info {
+    margin-top:10px;
+    text-align: left;
+    flex-grow:1;
+}
+
+.artwork-info p{
+    font-size : 14px;
+    color: #555;
+    margin-bottom: 8px;
+}
+.rating-and-category {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #999;
+}
+
+.rating {
+    color: #ffbc00;
+    font-size: 16px;
+    margin-right: 8px;
+}
+.category {
+    font-size: 14px;
+    color: #666;
+}
+.price {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+    margin-top: 10px;
+}
+.category-item p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.image-preview {
+    display:flex ;
+    gap:10px;
+    justify-content: flex-start ;
+    
+}
+.preview-image {
+    width: 162px;
+    height: 162px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+.author-description {
+    display: flex;
+    align-items: center; 
+    gap: 10px;
+    font-family: "맑은 고딕", "Malgun Gothic", "돋움", sans-serif ;
+    font-size: 15px ; 
+    color:#242424;
+    letter-spacing: -0.5px;
+}

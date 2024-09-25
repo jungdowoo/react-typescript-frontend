@@ -24,7 +24,10 @@
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.24.1",
     "react-scripts": "5.0.1",
-    "rehype-raw": "^7.0.0",
+    "rehype-raw": "^5.1.0",
+    "unified": "^10.1.2",
+    "vfile": "^5.3.4",
+    "vfile-message": "^2.0.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

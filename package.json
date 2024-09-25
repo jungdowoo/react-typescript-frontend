@@ -28,6 +28,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "preinstall": "npm install --legacy-peer-deps",
     "start": "react-app-rewired start",
     "build": "react-app-rewired build --legacy-peer-deps",
     "test": "react-app-rewired test",

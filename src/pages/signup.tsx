@@ -1,6 +1,5 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import KakaoLogin from 'react-kakao-login';
 import '../css/common.css';
 import '../css/reset.css';
 import { checkDuplicateUserId, checkDuplicateUserName, registerUser, registerAuthor } from '../api/api';
@@ -103,7 +102,7 @@ const Signup: React.FC = () => {
     handleNameBlur();
   }, [formData.userName, authorFormData.authorName, isGeneralMember]);
 
-  // 비밀번호 유효성 검사 함수
+  
   const handlePasswordBlur = () => {
     const password = isGeneralMember ? formData.userPwd : authorFormData.authorPwd;
     const passwordPattern = /^(?=.*[0-9]).{4,12}$/;
@@ -151,9 +150,6 @@ const Signup: React.FC = () => {
         alert('비밀번호가 일치하지 않습니다.');
         return;
       }
-      
-      console.log('sending user data:', formData);
-
       try {
         await registerUser(formData);
         alert('회원가입이 완료되었습니다.');
@@ -186,24 +182,7 @@ const Signup: React.FC = () => {
     }
   };
 
-  /*const responseKakao = async (response: any) => {
-    console.log(response);
-    try {
-      const res = await fetch('http://localhost:8080/oauth/callback/kakao', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          accessToken: response.response.access_token,
-        }),
-      });
-      const data = await res.json();
-      console.log(data);
-    } catch (error) {
-      console.error('카카오 로그인 중 오류가 발생했습니다:', error);
-    }
-  };*/
+
 
   const handleButtonClick = (isGeneral: boolean) => {
     setIsGeneralMember(isGeneral);
@@ -294,12 +273,7 @@ const Signup: React.FC = () => {
             />
           </div>
           <button type="submit" className="btn-login">회원 가입</button>
-          {/* <KakaoLogin
-            token="c2cb4dfcef65fb09f2a66219d38ee188"
-            onSuccess={responseKakao}
-            onFail={console.error}
-            onLogout={console.info}
-          /> */}
+          
         </form>
       );
     } else {
@@ -377,12 +351,7 @@ const Signup: React.FC = () => {
             />
           </div>
           <button type="submit" className="btn-login">회원가입</button>
-          {/* <KakaoLogin
-            token="c2cb4dfcef65fb09f2a66219d38ee188"
-            onSuccess={responseKakao}
-            onFail={console.error}
-            onLogout={console.info}
-          /> */}
+          
         </form>
       );
     }

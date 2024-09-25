@@ -6,7 +6,7 @@ import { Link, useLocation } from 'react-router-dom';
 interface BannerProps {
     title: string;
     description: string;
-    showCategoryNav?: boolean; // 카테고리 네비게이션을 표시할지 결정하는 prop
+    showCategoryNav?: boolean;
 }
 
 const Banner: React.FC<BannerProps> = ({ title, description, showCategoryNav }) => {
@@ -16,7 +16,7 @@ const Banner: React.FC<BannerProps> = ({ title, description, showCategoryNav }) 
             <h1>{title}</h1>
             <p>{description}</p>
 
-            {showCategoryNav && ( // showCategoryNav가 true일 때만 카테고리 네비게이션을 표시
+            {showCategoryNav && ( 
                 <nav className="category-nav">
                 <ul>
                         <li className={currentLocation.pathname === '/category/illustration' ? 'active' : ''}>

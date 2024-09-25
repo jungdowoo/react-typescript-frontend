@@ -38,7 +38,6 @@ const BoardList: React.FC<BoardListProps> = () => {
                 }
 
                 const data = await response.json();
-                console.log("Fetched posts:", data);
 
                 const formattedData = data.map((post: Post) => ({
                     ...post,
@@ -48,7 +47,6 @@ const BoardList: React.FC<BoardListProps> = () => {
 
                 setPosts(formattedData);
                 setFilteredPosts(formattedData);
-                console.log(formattedData);
             } catch (error) {
                 console.error('Error fetching posts:', error);
             }
@@ -56,10 +54,9 @@ const BoardList: React.FC<BoardListProps> = () => {
         fetchPosts();
     }, []);
 
-     // 검색어가 비어 있을 때 전체 목록을 보여주기 위한 useEffect 추가
     useEffect(() => {
         if (searchTerm === '') {
-            setFilteredPosts(posts);  // 검색어가 없으면 전체 포스트 목록을 보여줌
+            setFilteredPosts(posts);
         }
     }, [searchTerm, posts]);
 

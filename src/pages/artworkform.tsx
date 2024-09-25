@@ -29,7 +29,7 @@ const ArtworkForm: React.FC = () => {
         setFiles(selectedFiles);
 
         if (selectedFiles.length > 0) {
-            const previewUrls = selectedFiles.map((file) => URL.createObjectURL(file)); // 파일 미리보기 URL 생성
+            const previewUrls = selectedFiles.map((file) => URL.createObjectURL(file)); 
             setImagePreview(previewUrls);
         }
     };
@@ -45,7 +45,6 @@ const ArtworkForm: React.FC = () => {
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
 
-        // 에디터에서 작성한 내용을 가져옴
         const editorInstance = editorRef.current?.getInstance();
         const description = editorInstance?.getMarkdown();
 
@@ -85,17 +84,7 @@ const ArtworkForm: React.FC = () => {
             const data = await response.json();
             console.log('Artwork created:', data);
             navigate(`/category/${mappedCategory}`);
-            // if (category === '캐릭터 일러스트') {
-            //     navigate('/category/illustration');
-            // } else if (category === '3D버츄얼·인터넷 방송') {
-            //     navigate('/category/virtual-broadcast');
-            // } else if (category === '영상·음향') {
-            //     navigate('/category/video-sound');
-            // }  else if (category === '웹툰 ·만화') {
-            //     navigate('/category/webtoon');
-            // } else if (category === '소설·기타표지') {
-            //     navigate('/category/novel-cover');
-            // }
+            
         } catch (error) {
             console.error('Error creating artwork:', error);
         }
@@ -128,9 +117,6 @@ const ArtworkForm: React.FC = () => {
                             ref={editorRef} 
                             hooks={{
                                 addImageBlobHook: async (blob, callback) => {
-                                    console.log('Selected file in editor:', blob);
-
-                                    // 이미지 업로드 로직
                                     const formData = new FormData();
                                     formData.append('file', blob);
 
@@ -189,7 +175,6 @@ const ArtworkForm: React.FC = () => {
                             <option value="소설 기타 표지">소설·기타 표지</option>
                         </select>
                     </div>
-
                     <div className="form-group">
                         <label htmlFor="subCategory">서브 카테고리</label>
                         <select
@@ -203,7 +188,6 @@ const ArtworkForm: React.FC = () => {
                             <option value="non-commercial">비상업용</option>
                         </select>
                     </div>
-
                     <div className="form-group">
                         <label htmlFor="price">가격</label>
                         <input
@@ -214,7 +198,6 @@ const ArtworkForm: React.FC = () => {
                             required
                         />
                     </div>
-
                     <div className="form-group">
                         <label>작업 마감일</label>
                         <DatePicker
@@ -224,7 +207,6 @@ const ArtworkForm: React.FC = () => {
                             className="date-picker"
                         />
                     </div>
-
                     <div className="form-group">
                         <label>접수 마감일</label>
                         <DatePicker
@@ -234,9 +216,6 @@ const ArtworkForm: React.FC = () => {
                             className="date-picker"
                         />
                     </div>
-
-                    
-
                     <button type="submit" className="btn-submit">작품 등록</button>
                 </form>
             </div>

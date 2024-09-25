@@ -55,12 +55,12 @@ ul ul {
     color:red;
     margin-bottom: 10px;
 }
-.caution-list { /* 주의사항 리스트 스타일 */
+.caution-list { 
     padding-left: 20px;
     margin: 0;
 }
 
-.caution-list p { /* 주의사항 리스트 항목 스타일 */
+.caution-list p {
     margin-bottom: 5px;
 }
 .bold {
@@ -190,7 +190,6 @@ table.bd_table th {
     justify-content: center;
     margin-top:100px;
 }
-/*여기까지 기존코드*/
 .board-form-container { 
     max-width: 900px;
     margin: 0 auto;

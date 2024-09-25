@@ -137,9 +137,6 @@
   .settings-section button:hover {
     background-color: #0056b3;
   }
-
-  /* 프로필 변경 CSS*/
-
   .pro_wrapper{
     display: flex;
     max-width: 1200px;
@@ -179,7 +176,7 @@
   }
   
   .profile-info-section input {
-    width:480px; /* 닉네임 변경을 위해 나중에 사용할 수 있습니다 */
+    width:480px;
   }
   
   .profile-info-section button {

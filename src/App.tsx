@@ -9,7 +9,6 @@ import Header from './components/header';
 import BoardList from './routes/BoardList';
 import BoardForm from './routes/BoardForm';
 import BoardDetail from './routes/BoardDetail';
-import KakaoCallback from './components/KakaoCallBack';
 import ProfileEdit from './pages/profile-edit';
 import { Post } from './types';
 import CategoryPage from './pages/category';
@@ -26,7 +25,7 @@ const App: FC = () => {
   const [userName, setUserName] = useState<string>('');
   const [posts, setPosts] = useState<Post[]>([]);
 
-  // 로그인 함수
+ 
   const handleLogin = (userData: { userId: string, userName: string, token:string, isAuthor?: boolean }) => {
     console.log('App.tsx - handleLogin 호출됨:', userData);
 
@@ -48,7 +47,6 @@ const App: FC = () => {
     console.log('현재 isAuthor 상태:', isAuthor);
   };
 
-  // 로그아웃 함수
   const logout = () => {
     console.log('로그아웃 함수 호출');
     localStorage.removeItem('jwtToken');
@@ -59,15 +57,13 @@ const App: FC = () => {
     setIsAuthor(false);
   };
 
-  // 로컬스토리지에서 상태 복원 (추가된 기능)
   useEffect(() => {
     const token = localStorage.getItem('jwtToken');
-    const storedIsAuthor = localStorage.getItem('isAuthor') === 'true'; // 로컬스토리지에서 isAuthor 값을 불러옴
+    const storedIsAuthor = localStorage.getItem('isAuthor') === 'true'; 
 
     if (token) {
       setIsLoggedIn(true);
       setIsAuthor(storedIsAuthor);
-      console.log('페이지 새로 고침 후 로컬스토리지에서 값 로드:', { isLoggedIn: true, isAuthor: storedIsAuthor }); // 추가된 로그
     }
   }, []);
 
@@ -89,7 +85,6 @@ const App: FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login handleLogin={handleLogin} />} />
-        <Route path="/oauth/callback/kakao" element={<KakaoCallback />} />
         <Route path="/boardlist" element={<BoardList posts={posts} />} />
         <Route path="/boardform" element={isLoggedIn ? <BoardForm addPost={addPost} /> : <Navigate to="/login" />} />
         <Route path="/board/:id" element={<BoardDetail />} />

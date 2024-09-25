@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import axios from 'axios';
-import { Post } from '../types'; // 게시물 타입
+import { Post } from '../types';
 
 const SearchResults: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const location = useLocation();
 
-  // URL에서 쿼리 파라미터 추출
   const queryParams = new URLSearchParams(location.search);
   const query = queryParams.get('query') || '';
 

@@ -21,8 +21,7 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn, isAuthor, logout }) => {
   };
 
   useEffect(() => {
-    console.log('헤더 렌더링 - 로그인 상태 (isLoggedIn):', isLoggedIn);
-    console.log('헤더 렌더링 - 작가여부 (isAuthor):', isAuthor);
+    
   }, [isLoggedIn, isAuthor]);
 
   return (
@@ -68,29 +67,19 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn, isAuthor, logout }) => {
             </div>
           )}
         </div>
-        {/* <div className='hd-right'>
-          <a href="#"></a>
-          <div id="menuTop4" className="menuTop">이용 후기</div>
-        </div> */}
+        
         <div
           className='hd-right'
           onMouseEnter={() => handleMouseEnter('customerService')}
           onMouseLeave={handleMouseLeave}
         >
-          {/* <a href="#"></a>
-          <div id="menuTop5" className="menuTop">고객센터</div>
-          {openCategory === 'customerService' && (
-            <div className='dropdown-menu'>
-              <a href="#">고객 문의</a>
-              <a href="#">자주하는 질문</a>
-            </div>
-          )} */}
+          
         </div>
 
         <div className='hd-right auth-links'>
         {isLoggedIn ? (
             <>
-              {/* 작가인 경우와 일반 사용자인 경우를 구분 */}
+             
               {isAuthor ? (
                 <>
                   <Link to="/mypage">작가 마이페이지</Link>

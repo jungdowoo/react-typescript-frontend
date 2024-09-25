@@ -33,7 +33,6 @@ const BoardForm: React.FC<BoardFormProps> = ({ addPost }) => {
 
     const navigate = useNavigate();
 
-    // JWT 토큰에서 userID를 추출하는 함수
     const getUserIdFromToken = (): string | null => {
         const token = localStorage.getItem('token');
         if (!token)return null;
@@ -42,7 +41,7 @@ const BoardForm: React.FC<BoardFormProps> = ({ addPost }) => {
         const base64 = base64Url.replace('-', '+').replace('_', '/');
         try {
             const decodedData = JSON.parse(window.atob(base64));
-            return decodedData.sub; // 일반적으로 'sub' 필드에 userId가 저장되어 있음
+            return decodedData.sub; 
         } catch (error) {
             console.error("Error decoding token:", error);
             return null;
@@ -66,7 +65,6 @@ const BoardForm: React.FC<BoardFormProps> = ({ addPost }) => {
         formData.append('dueDate', formatDate(endDate));
         formData.append('deadline', formatDate(closingDate));
         formData.append('userId', userId || '');
-       
         formData.append('category', category);
         formData.append('subCategory', subCategory);
 
@@ -89,8 +87,6 @@ const BoardForm: React.FC<BoardFormProps> = ({ addPost }) => {
             }
 
             const data = await response.json();
-            console.log('Post created:', data);
-           
             addPost(data);
             navigate('/boardlist');
         } catch (error: any) {
@@ -117,7 +113,7 @@ const BoardForm: React.FC<BoardFormProps> = ({ addPost }) => {
 
     return (
         <div>
-             <Banner title="의뢰 게시판" description="원하시는 작품을 편하고 빠르게 의뢰하세요!"/>
+            <Banner title="의뢰 게시판" description="원하시는 작품을 편하고 빠르게 의뢰하세요!"/>
         <div className="board-form-container">
             
             <div className="guide_box">
@@ -227,8 +223,8 @@ const BoardForm: React.FC<BoardFormProps> = ({ addPost }) => {
                     <ul className="item1">작업 마감일</ul>
                     <ul>
                     <DatePicker
-                        selected={endDate}  // 독립적인 상태 변수 endDate
-                        onChange={(date: Date | null) => setEndDate(date)}  // endDate 상태 업데이트
+                        selected={endDate}
+                        onChange={(date: Date | null) => setEndDate(date)} 
                         dateFormat="yy-MM-dd"
                         className="input_search"
                         showTimeSelect={false}
@@ -242,8 +238,8 @@ const BoardForm: React.FC<BoardFormProps> = ({ addPost }) => {
                     <ul className="item1">접수 마감일</ul>
                     <ul>
                     <DatePicker
-                        selected={closingDate}  // Date 객체를 전달
-                        onChange={(date: Date | null) => setClosingDate(date)}  // Date 객체를 설정
+                        selected={closingDate} 
+                        onChange={(date: Date | null) => setClosingDate(date)} 
                         dateFormat="yy-MM-dd"
                         className="input_search"
                         showTimeSelect={false}

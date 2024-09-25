@@ -48,8 +48,8 @@
   position:relative;
 }
 .dropdown-menu {
-  position: absolute; /* 부모 요소를 기준으로 절대 위치 */
-  top: 65px; /* 메뉴 항목 바로 아래에 배치 */
+  position: absolute; 
+  top: 65px; 
   left: 0;
   background-color: #180c3c;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

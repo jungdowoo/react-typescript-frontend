@@ -94,10 +94,6 @@ const BoardDetail: React.FC = () => {
         const userId = localStorage.getItem('userId');
         const profileImageUrl = localStorage.getItem('profileImageUrl');
 
-
-        console.log('Fetched userName from localStorage:', userName);
-        console.log('Fetched userId from localStorage:', userId);
-
         const commentData = {
             postId:Number(id),
             userId: userId,
@@ -128,7 +124,6 @@ const BoardDetail: React.FC = () => {
             console.error ('Error posting comment:', error);
         }
     };
-    //게시글 수정 기능 추가
     const handleEditPost = async () => {
         const updatedTitle = prompt('게시물 제목을 수정하세요:',post?.title);
         const updatedContent = prompt('게시물 내용을 수정하세요:', post?.content);
@@ -160,7 +155,6 @@ const BoardDetail: React.FC = () => {
             }
         }
     };
-    // 게시글 삭제 기능 추가
     const handleDeletePost = async () => {
         if(window.confirm('정말로 이 게시물을 삭제하시겠습니까?')) {
             try {
@@ -183,7 +177,6 @@ const BoardDetail: React.FC = () => {
         }
     };
 
-    // 댓글 수정 기능 
     const handleEditComment = async (commentId: number) => {
         const updatedContent = prompt('댓글을 수정하세요:');
         if (updatedContent !== null) {
@@ -214,7 +207,6 @@ const BoardDetail: React.FC = () => {
         }
     };
 
-    // 댓글 삭제 기능
     const handleDeleteComment = async (commentId: number) => {
         const userId = localStorage.getItem('userId');
         const token = localStorage.getItem('jwtToken');
@@ -285,7 +277,7 @@ const BoardDetail: React.FC = () => {
                         comments.map((comment) => (
                             <div key={comment.id} className="comment">
                                 <div className="comment-content">
-                               
+                            
                                 <p className="comment-user">
                                     {comment.profileImageUrl &&(
                                         <img

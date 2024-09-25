@@ -20,7 +20,6 @@
 }
 .login-container label{display: block;}
 
-/*헤더영역은 max-width 영향안먹게하기*/
 .header-content {
     max-width: none;
     width:100%;

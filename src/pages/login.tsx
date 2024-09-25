@@ -35,27 +35,19 @@ const Login: React.FC<LoginProps> = ({ handleLogin }) => {
     try {
       let response;
       if (userType === 'author') {
-        console.log('Login.tsx - @작가 로그인 API 호출전');
         response = await apiAuthorLogin(userId, userPwd);
-        console.log('Login.tsx - API 응답:', response);
       } else {
-        console.log('Login.tsx - @일반 로그인 API 호출전');
         response = await apiLogin(userId, userPwd);
-        console.log('Login.tsx - API 응답:', response);
       }
 
-      // API 응답 로그 추가
-      console.log('response.success:', response.success);
-      console.log('response.data:', response.data);
-
-      // handleLogin 호출, 조건문을 제거하고 바로 실행
+      
       if (response && response.success && response.data) {
         console.log('Login.tsx - 로그인이 성공하여 handleLogin 호출:', response.data);
         handleLogin({ 
           userId: response.data.userId, 
           userName: response.data.userName, 
           token: response.data.token,
-          isAuthor: userType === 'author', // userType을 기준으로 isAuthor 설정
+          isAuthor: userType === 'author',
         });
 
         setRedirect(true);

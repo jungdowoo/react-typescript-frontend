@@ -10,21 +10,18 @@ const Home: React.FC = () => {
   const navigate = useNavigate(); 
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value); // 검색어 업데이트
+    setSearchTerm(e.target.value); 
   };
 
-  // 검색어 제출 처리
   const handleSearch = () => {
     if (searchTerm.trim() !== '') {
-      // 검색어가 있으면 category.tsx 페이지로 이동하며 검색어 전달
       navigate(`/category/search?query=${encodeURIComponent(searchTerm)}`);
     }
   };
 
-  // 엔터 키 입력 처리
+  
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && searchTerm) {
-      // 검색어를 쿼리로 포함하여 검색 결과 페이지로 이동
       navigate(`/category/illustration?query=${encodeURIComponent(searchTerm)}`);
     }
   };

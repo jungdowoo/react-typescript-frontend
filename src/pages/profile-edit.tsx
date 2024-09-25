@@ -39,7 +39,7 @@ const ProfileEdit: React.FC<ProfileEditProps> = ({ userId, userName }) => {
   const [userImage, setUserImage] = useState<string>('');
   const [isLoading, setIsLoading] = useState(true);
 
-  // 닉네임 수정 상태
+  
   const [isEditingName, setIsEditingName] = useState<boolean>(false);
   const [isEditingId, setIsEditingId] = useState<boolean>(false);
   const [isEditingPassword, setIsEditingPassword] = useState<boolean>(false);
@@ -54,12 +54,8 @@ const ProfileEdit: React.FC<ProfileEditProps> = ({ userId, userName }) => {
   const [isDuplicate, setIsDuplicate] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-
-
-  // 파일 입력 필드 참조 useRef 훅
   const fileInputRef = useRef<HTMLInputElement>(null);
-
-  // 기본 이미지 URL 정의
+  
   const defaultProfileImage = '/images/blank_profile.png';
 
   useEffect(() => {
@@ -112,7 +108,6 @@ const ProfileEdit: React.FC<ProfileEditProps> = ({ userId, userName }) => {
     }
   };
 
-  // 각 필드 편집 모드 전환 함수
   const handleEditNameClick = () => {
     console.log("edit button clicked");
     setIsEditingName(true);
@@ -128,7 +123,6 @@ const ProfileEdit: React.FC<ProfileEditProps> = ({ userId, userName }) => {
     setIsEditingPhone(true);
   };
 
-  // 각 필드의 편집 모드 취소 함수
   const handleCancelNameClick = () => {
     setIsEditingName(false);
     setNewUserName(user.userName);
@@ -150,7 +144,7 @@ const ProfileEdit: React.FC<ProfileEditProps> = ({ userId, userName }) => {
     setError(null);
   }
 
-  // 각 필드의 저장 함수
+  
   const handleSaveNameClick = async () => {
     try {
       const response = await axios.put(`/api/users/profile/${user.userId}/nickname`, {
@@ -161,8 +155,8 @@ const ProfileEdit: React.FC<ProfileEditProps> = ({ userId, userName }) => {
         }
       });
 
-      setUser({ ...user, userName: newUserName }); // 닉네임 업데이트
-      setIsEditingName(false); // 편집 모드를 비활성화
+      setUser({ ...user, userName: newUserName });
+      setIsEditingName(false);
       alert('닉네임이 성공적으로 변경되었습니다.');
     } catch (error) {
       const axiosError = error as AxiosError;
@@ -209,7 +203,7 @@ const ProfileEdit: React.FC<ProfileEditProps> = ({ userId, userName }) => {
         }
       });
 
-      setIsEditingPassword(false); // 편집 모드를 비활성화
+      setIsEditingPassword(false);
       alert('비밀번호가 성공적으로 변경되었습니다.');
     } catch (error) {
       const axiosError = error as AxiosError;
@@ -269,37 +263,28 @@ const ProfileEdit: React.FC<ProfileEditProps> = ({ userId, userName }) => {
   const handleImageChange = async (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0];
-  
-      // 이미지를 미리보기 URL로 설정
       const previewUrl = URL.createObjectURL(file);
-      setUserImage(previewUrl); // 선택한 이미지를 즉시 보여주기
+      setUserImage(previewUrl); 
   
       try {
-        // 이미지 업로드 API 호출을 위한 폼 데이터 생성
         const formData = new FormData();
         formData.append('image', file);
-
-        // 백엔드로 이미지 업로드 요청
         const response = await axios.post('http://localhost:8080/api/users/profile/upload', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
-            Authorization: `Bearer ${localStorage.getItem('token')}`, // 인증 토큰 헤더에 포함
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
         });
 
         const imageUrl = response.data.imageUrl;
-        console.log('이미지 업로드 완료:', imageUrl); 
-
-        // 업로드된 이미지 URL을 상태에 반영
+        
         setUser(prevUser => ({ ...prevUser, profileImage: imageUrl })); 
-        setUserImage(imageUrl); // 업로드 완료 후, 실제 업로드된 이미지로 업데이트
+        setUserImage(imageUrl); 
         localStorage.setItem('profileImageUrl', imageUrl);
       } catch (error) {
         console.error('이미지 변경 중 오류 발생:', error);
         alert("이미지 업로드 중 오류가 발생했습니다.");
-        // 필요에 따라 추가적인 오류 처리 로직을 여기에 추가할 수 있습니다.
       } finally {
-        // 미리보기 URL 해제 (메모리 누수 방지)
         URL.revokeObjectURL(previewUrl);
       }
     }
@@ -371,7 +356,7 @@ const ProfileEdit: React.FC<ProfileEditProps> = ({ userId, userName }) => {
         )}
         </div>
           {isEditingName && (
-            <div className="button-group"> {/* 버튼을 묶는 div 추가 */}
+            <div className="button-group"> 
               <button onClick={handleSaveNameClick} className="btn-save">저장</button>
               <button onClick={handleCancelNameClick} className="btn-cancel">취소</button>
             </div>

@@ -18,7 +18,7 @@ const MyPage: React.FC<MyPageProps> = ({ userId, userName }) => {
       <div className="profile-header">
         <div className="profile-image">
           {userImage ? (
-            <img src={`http://localhost:8080/uploads/${userImage}`} alt="Profile" />
+            <img src={`http://adsf3323.cafe24.com/uploads/${userImage}`} alt="Profile" />
           ) : (
             <img src="../images/blank_profile.png" alt="Default Profile" /> 
           )}

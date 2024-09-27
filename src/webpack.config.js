@@ -17,7 +17,7 @@ module.exports = {
     },
   },
   devServer: {
-    allowedHosts: ['localhost'],
+    allowedHosts: ['all'],
     port: 3000,
     open: true,
     hot: true,

@@ -73,7 +73,7 @@ const BoardForm: React.FC<BoardFormProps> = ({ addPost }) => {
         }
 
         try {
-            const response = await fetch('http://localhost:8080/api/posts', {
+            const response = await fetch('http://adsf3323.cafe24.com/api/posts', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`

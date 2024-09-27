@@ -49,7 +49,7 @@ const ArtworkDetail: React.FC = () => {
                 {artwork.imagePaths && artwork.imagePaths.split(',').map((imagePath: string, index: number) => (
                     <img 
                         key={index}
-                        src={`http://localhost:8080/uploads/${imagePath.trim()}`} 
+                        src={`http://adsf3323.cafe24.com/uploads/${imagePath.trim()}`} 
                         alt={`이미지 ${index + 1}`}
                         className="artwork-image" 
                     />

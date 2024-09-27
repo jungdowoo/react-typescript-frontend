@@ -68,7 +68,7 @@ const ArtworkForm: React.FC = () => {
 
         try {
             const token = localStorage.getItem('jwtToken');
-            const response = await fetch('http://localhost:8080/api/artworks/artupload', {
+            const response = await fetch('http://adsf3323.cafe24.com/api/artworks/artupload', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -122,7 +122,7 @@ const ArtworkForm: React.FC = () => {
 
                                     try {
                                         const token = localStorage.getItem('jwtToken');
-                                        const response = await fetch('http://localhost:8080/api/artworks/uploadImage',{
+                                        const response = await fetch('http://adsf3323.cafe24.com/api/artworks/uploadImage',{
                                             method: 'POST',
                                             headers: {
                                                 'Authorization': `Bearer ${token}`,
@@ -202,7 +202,7 @@ const ArtworkForm: React.FC = () => {
                         <label>작업 마감일</label>
                         <DatePicker
                             selected={completionDate}
-                            onChange={(date) => setCompletionDate(date)}
+                            onChange={(date:Date) => setCompletionDate(date)}
                             dateFormat="yyyy-MM-dd"
                             className="date-picker"
                         />
@@ -211,7 +211,7 @@ const ArtworkForm: React.FC = () => {
                         <label>접수 마감일</label>
                         <DatePicker
                             selected={deadline}
-                            onChange={(date) => setDeadline(date)}
+                            onChange={(date:Date) => setDeadline(date)}
                             dateFormat="yyyy-MM-dd"
                             className="date-picker"
                         />

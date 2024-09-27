@@ -4,7 +4,7 @@ const Location: React.FC = () => {
   const [message, setMessage] = useState<string>('');
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/location')
+    fetch('http://adsf3323.cafe24.com/api/location')
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');

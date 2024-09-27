@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: 'http://adsf3323.cafe24.com',
   headers: {
     'Content-type': 'application/json',
   },
@@ -160,7 +160,7 @@ export const getCurrentUserProfile = async (): Promise<UserProfile> => {
 
 export const checkDuplicateUserId = async (userId: string): Promise<boolean> => {
   try {
-    const response = await apiClient.post<{ isDuplicate: boolean }>('http://localhost:8080/api/users/check-duplicate', { userId });
+    const response = await apiClient.post<{ isDuplicate: boolean }>('http://adsf3323.cafe24.com/api/users/check-duplicate', { userId });
     return response.data.isDuplicate;
   } catch (error) {
     throw error;
@@ -169,7 +169,7 @@ export const checkDuplicateUserId = async (userId: string): Promise<boolean> => 
 
 export const checkDuplicateUserName = async (userName: string): Promise<boolean> => {
   try {
-    const response = await apiClient.post<{ isDuplicate: boolean }>('http://localhost:8080/api/users/check-name-duplicate', { userName });
+    const response = await apiClient.post<{ isDuplicate: boolean }>('http://adsf3323.cafe24.com/api/users/check-name-duplicate', { userName });
     return response.data.isDuplicate;
   } catch (error) {
     throw error;

@@ -8,7 +8,7 @@ const app = express();
 const port = 8080;
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://react-typescript-frontend.onrender.com/',
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
@@ -110,5 +110,5 @@ app.get('/api/location', (req: Request, res: Response) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+  console.log(`Server is running on http://adsf3323.cafe24.com:${port}`);
 });

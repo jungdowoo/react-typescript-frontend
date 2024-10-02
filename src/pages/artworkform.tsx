@@ -202,7 +202,7 @@ const ArtworkForm: React.FC = () => {
                         <label>작업 마감일</label>
                         <DatePicker
                             selected={completionDate}
-                            onChange={(date:Date) => setCompletionDate(date)}
+                            onChange={(date:Date | null) => setCompletionDate(date)}
                             dateFormat="yyyy-MM-dd"
                             className="date-picker"
                         />
@@ -211,7 +211,7 @@ const ArtworkForm: React.FC = () => {
                         <label>접수 마감일</label>
                         <DatePicker
                             selected={deadline}
-                            onChange={(date:Date) => setDeadline(date)}
+                            onChange={(date:Date | null) => setDeadline(date)}
                             dateFormat="yyyy-MM-dd"
                             className="date-picker"
                         />

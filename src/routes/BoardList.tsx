@@ -31,7 +31,7 @@ const BoardList: React.FC<BoardListProps> = () => {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await fetch('http://adsf3323.cafe24.com/api/posts');
+                const response = await fetch('/api/posts');
 
                 if(!response.ok){
                     throw new Error('Failed to fetch posts');

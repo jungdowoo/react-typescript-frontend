@@ -269,7 +269,7 @@ const ProfileEdit: React.FC<ProfileEditProps> = ({ userId, userName }) => {
       try {
         const formData = new FormData();
         formData.append('image', file);
-        const response = await axios.post('http://adsf3323.cafe24.com/api/users/profile/upload', formData, {
+        const response = await axios.post('/api/users/profile/upload', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
             Authorization: `Bearer ${localStorage.getItem('token')}`,

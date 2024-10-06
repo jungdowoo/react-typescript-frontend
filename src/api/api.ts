@@ -1,10 +1,13 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: 'http://adsf3323.cafe24.com',
-  headers: {
-    'Content-type': 'application/json',
-  },
+  baseURL: 'https://jungdowoo.store',
+    headers: {
+        Accept: "*/*",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": "true",
+    },
 });
 
 interface LoginResponse {
@@ -44,7 +47,7 @@ interface RegisterAuthorData {
 export const login = async (userId: string, userPwd: string): Promise<LoginResponse> => {
   try {
     const response = await apiClient.post<LoginResponse>('/api/users/login', { userId, userPwd });
-    
+
 
     if (response.data.success && response.data.data) {
       localStorage.setItem('token', response.data.data.token);
@@ -56,26 +59,26 @@ export const login = async (userId: string, userPwd: string): Promise<LoginRespo
         }
       };
     }
-    
+
     return response.data;
   } catch (error) {
     console.error('로그인 API 오류:', error);
     if (axios.isAxiosError(error) && error.response && error.response.status === 401) {
       try {
         const response = await apiClient.post<LoginResponse>('/api/authors/login', { userId, userPwd });
-        
-        
+
+
         if (response.data.success&& response.data.data) {
           localStorage.setItem('token', response.data.data.token);
           return {
             ...response.data,
             data: {
               ...response.data.data,
-              isAuthor: true 
+              isAuthor: true
             }
           };
         }
-        
+
         return response.data;
       } catch (authorError) {
         if (axios.isAxiosError(authorError) && authorError.response) {
@@ -107,10 +110,10 @@ export const loginAuthor = async (authorId: string, authorPwd: string): Promise<
 
 export const uploadProfileImage = async (imageFile: File): Promise<string> => {
   try {
-    const token = localStorage.getItem('token'); 
+    const token = localStorage.getItem('token');
     if (!token) {
       alert('Please log in again.');
-      window.location.href = '/login'; 
+      window.location.href = '/login';
       throw new Error('No token found');
     }
 
@@ -120,18 +123,18 @@ export const uploadProfileImage = async (imageFile: File): Promise<string> => {
     const response = await apiClient.post<{ imageUrl: string }>('/api/users/profile/upload', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
-        'Authorization': `Bearer ${token}` 
+        'Authorization': `Bearer ${token}`
       }
     });
     const imageUrl = response.data.imageUrl;
 
-    return response.data.imageUrl; 
+    return response.data.imageUrl;
   } catch (error) {
-    
+
 
     if (axios.isAxiosError(error) && error.response && error.response.status === 401) {
       alert('인증이 만료되었습니다. 다시 로그인해주세요.');
-      window.location.href = '/login'; 
+      window.location.href = '/login';
     }
 
     throw error;
@@ -141,7 +144,7 @@ export const uploadProfileImage = async (imageFile: File): Promise<string> => {
 
 export const getCurrentUserProfile = async (): Promise<UserProfile> => {
   try {
-    const token = localStorage.getItem('token'); 
+    const token = localStorage.getItem('token');
     if (!token) {
       alert("세션이 만료되었습니다.");
       window.location.href= ' /login';
@@ -149,7 +152,7 @@ export const getCurrentUserProfile = async (): Promise<UserProfile> => {
     }
     const response = await apiClient.get<UserProfile>('/api/users/profile/current', {
       headers: {
-        Authorization: `Bearer ${token}` 
+        Authorization: `Bearer ${token}`
       }
     });
     return response.data;
@@ -160,7 +163,7 @@ export const getCurrentUserProfile = async (): Promise<UserProfile> => {
 
 export const checkDuplicateUserId = async (userId: string): Promise<boolean> => {
   try {
-    const response = await apiClient.post<{ isDuplicate: boolean }>('http://adsf3323.cafe24.com/api/users/check-duplicate', { userId });
+    const response = await apiClient.post<{ isDuplicate: boolean }>('/api/users/check-duplicate', { userId });
     return response.data.isDuplicate;
   } catch (error) {
     throw error;
@@ -169,7 +172,7 @@ export const checkDuplicateUserId = async (userId: string): Promise<boolean> => 
 
 export const checkDuplicateUserName = async (userName: string): Promise<boolean> => {
   try {
-    const response = await apiClient.post<{ isDuplicate: boolean }>('http://adsf3323.cafe24.com/api/users/check-name-duplicate', { userName });
+    const response = await apiClient.post<{ isDuplicate: boolean }>('/api/users/check-name-duplicate', { userName });
     return response.data.isDuplicate;
   } catch (error) {
     throw error;

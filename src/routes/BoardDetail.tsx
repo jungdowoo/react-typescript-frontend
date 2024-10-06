@@ -47,7 +47,7 @@ const BoardDetail: React.FC = () => {
     useEffect(() => {
         const fetchPost = async () => {
             try {
-                const response = await fetch(`http://adsf3323.cafe24.com/api/posts/${id}`);
+                const response = await fetch(`/api/posts/${id}`);
                 if (response.ok) {
                     const data = await response.json();
 
@@ -70,7 +70,7 @@ const BoardDetail: React.FC = () => {
 
         const fetchComments = async () => {
             try {
-                const response = await fetch(`http://adsf3323.cafe24.com/api/posts/${id}/comments`);
+                const response = await fetch(`/api/posts/${id}/comments`);
                 if (response.ok) {
                     const data = await response.json();
                     setComments(data);
@@ -105,7 +105,7 @@ const BoardDetail: React.FC = () => {
         try {
             const token = localStorage.getItem('jwtToken');
             console.log('JWT Token:', token);
-            const response = await fetch(`http://adsf3323.cafe24.com/api/posts/${id}/comments`, {
+            const response = await fetch(`/api/posts/${id}/comments`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -136,7 +136,7 @@ const BoardDetail: React.FC = () => {
             };
             try {
                 const token = localStorage.getItem('jwtToken');
-                const response = await fetch (`http://adsf3323.cafe24.com/api/posts/${id}`,{
+                const response = await fetch (`/api/posts/${id}`,{
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -159,7 +159,7 @@ const BoardDetail: React.FC = () => {
         if(window.confirm('정말로 이 게시물을 삭제하시겠습니까?')) {
             try {
                 const token = localStorage.getItem('jwtToken');
-                const response = await fetch(`http://adsf3323.cafe24.com/api/posts/${id}`,{
+                const response = await fetch(`/api/posts/${id}`,{
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
@@ -184,7 +184,7 @@ const BoardDetail: React.FC = () => {
             const token = localStorage.getItem('jwtToken');
 
             try {
-                const response = await fetch(`http://adsf3323.cafe24.com/api/posts/${id}/comments/${commentId}`,{
+                const response = await fetch(`/api/posts/${id}/comments/${commentId}`,{
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -212,7 +212,7 @@ const BoardDetail: React.FC = () => {
         const token = localStorage.getItem('jwtToken');
 
         try{
-            const response = await fetch(`http://adsf3323.cafe24.com/api/posts/${id}/comments/${commentId}`,{
+            const response = await fetch(`/api/posts/${id}/comments/${commentId}`,{
                 method : 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

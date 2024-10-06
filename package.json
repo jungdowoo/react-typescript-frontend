@@ -72,5 +72,6 @@
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.2"
   },
-  "proxy": "http://adsf3323.cafe24.com"
+  "proxy": "https://jungdowoo.store/",
+  "homepage": "https://jungdowoo.store/"
 }

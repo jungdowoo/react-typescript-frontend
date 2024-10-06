@@ -29,7 +29,7 @@ const ArtworkForm: React.FC = () => {
         setFiles(selectedFiles);
 
         if (selectedFiles.length > 0) {
-            const previewUrls = selectedFiles.map((file) => URL.createObjectURL(file)); 
+            const previewUrls = selectedFiles.map((file) => URL.createObjectURL(file));
             setImagePreview(previewUrls);
         }
     };
@@ -52,7 +52,7 @@ const ArtworkForm: React.FC = () => {
         formData.append('title', title);
         formData.append('content', description || '');
 
-        const mappedCategory = categoryMap[category] || "unknown-category"; 
+        const mappedCategory = categoryMap[category] || "unknown-category";
         formData.append('category', mappedCategory);
 
         formData.append('category', category);
@@ -63,12 +63,12 @@ const ArtworkForm: React.FC = () => {
 
         files.forEach((file) => {
             formData.append('images', file);
-            console.log('Uploading file:', file); 
+            console.log('Uploading file:', file);
         });
 
         try {
             const token = localStorage.getItem('jwtToken');
-            const response = await fetch('http://adsf3323.cafe24.com/api/artworks/artupload', {
+            const response = await fetch('/api/artworks/artupload', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -84,7 +84,7 @@ const ArtworkForm: React.FC = () => {
             const data = await response.json();
             console.log('Artwork created:', data);
             navigate(`/category/${mappedCategory}`);
-            
+
         } catch (error) {
             console.error('Error creating artwork:', error);
         }
@@ -109,12 +109,12 @@ const ArtworkForm: React.FC = () => {
                     <div className="form-group">
                         <label htmlFor="description">내용</label>
                         <Editor
-                            initialValue="" 
+                            initialValue=""
                             previewStyle="vertical"
                             height="400px"
                             initialEditType="wysiwyg"
                             useCommandShortcut={true}
-                            ref={editorRef} 
+                            ref={editorRef}
                             hooks={{
                                 addImageBlobHook: async (blob, callback) => {
                                     const formData = new FormData();
@@ -122,7 +122,7 @@ const ArtworkForm: React.FC = () => {
 
                                     try {
                                         const token = localStorage.getItem('jwtToken');
-                                        const response = await fetch('http://adsf3323.cafe24.com/api/artworks/uploadImage',{
+                                        const response = await fetch('/api/artworks/uploadImage',{
                                             method: 'POST',
                                             headers: {
                                                 'Authorization': `Bearer ${token}`,
@@ -152,7 +152,7 @@ const ArtworkForm: React.FC = () => {
 
                         <div className="form-group">
                             <label htmlFor="fileUpload">파일 첨부</label>
-                            <input 
+                            <input
                                 type="file"
                                 id="fileupload"
                                 multiple
@@ -202,7 +202,7 @@ const ArtworkForm: React.FC = () => {
                         <label>작업 마감일</label>
                         <DatePicker
                             selected={completionDate}
-                            onChange={(date:Date) => setCompletionDate(date)}
+                            onChange={(date: Date | null) => date && setCompletionDate(date)}
                             dateFormat="yyyy-MM-dd"
                             className="date-picker"
                         />
@@ -211,7 +211,7 @@ const ArtworkForm: React.FC = () => {
                         <label>접수 마감일</label>
                         <DatePicker
                             selected={deadline}
-                            onChange={(date:Date) => setDeadline(date)}
+                            onChange={(date: Date | null) => date && setDeadline(date)}
                             dateFormat="yyyy-MM-dd"
                             className="date-picker"
                         />
@@ -220,7 +220,7 @@ const ArtworkForm: React.FC = () => {
                 </form>
             </div>
         </div>
-        
+
     );
     <Footer />
 };

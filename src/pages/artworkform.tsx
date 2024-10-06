@@ -122,7 +122,7 @@ const ArtworkForm: React.FC = () => {
 
                                     try {
                                         const token = localStorage.getItem('jwtToken');
-                                        const response = await fetch('/api/artworks/uploadImage',{
+                                        const response = await fetch('http://adsf3323.cafe24.com/api/artworks/uploadImage',{
                                             method: 'POST',
                                             headers: {
                                                 'Authorization': `Bearer ${token}`,
